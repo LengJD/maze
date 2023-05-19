@@ -1,0 +1,61 @@
+# Project: MazeEditor
+# Makefile created by Dev-C++ 5.8.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = ../compiled/exceptio.o ../compiled/genlib.o ../compiled/graphics.o ../compiled/imgui.o ../compiled/linkedlist.o ../compiled/random.o ../compiled/simpio.o ../compiled/strlib.o ../compiled/main.o ../compiled/display.o ../compiled/file.o ../compiled/solution_auto.o
+LINKOBJ  = ../compiled/exceptio.o ../compiled/genlib.o ../compiled/graphics.o ../compiled/imgui.o ../compiled/linkedlist.o ../compiled/random.o ../compiled/simpio.o ../compiled/strlib.o ../compiled/main.o ../compiled/display.o ../compiled/file.o ../compiled/solution_auto.o
+LIBS     = -L"D:/Dev c++/Dev-Cpp/MinGW64/lib" -L"D:/Dev c++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -mwindows -g3
+INCS     = -I"D:/Dev c++/Dev-Cpp/MinGW64/include" -I"D:/Dev c++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Dev c++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"../lib" -I"../src"
+CXXINCS  = -I"D:/Dev c++/Dev-Cpp/MinGW64/include" -I"D:/Dev c++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Dev c++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"D:/Dev c++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++" -I"../lib" -I"../src"
+BIN      = ../compiled/Maze.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+../compiled/exceptio.o: ../lib/exceptio.c
+	$(CC) -c ../lib/exceptio.c -o ../compiled/exceptio.o $(CFLAGS)
+
+../compiled/genlib.o: ../lib/genlib.c
+	$(CC) -c ../lib/genlib.c -o ../compiled/genlib.o $(CFLAGS)
+
+../compiled/graphics.o: ../lib/graphics.c
+	$(CC) -c ../lib/graphics.c -o ../compiled/graphics.o $(CFLAGS)
+
+../compiled/imgui.o: ../lib/imgui.c
+	$(CC) -c ../lib/imgui.c -o ../compiled/imgui.o $(CFLAGS)
+
+../compiled/linkedlist.o: ../lib/linkedlist.c
+	$(CC) -c ../lib/linkedlist.c -o ../compiled/linkedlist.o $(CFLAGS)
+
+../compiled/random.o: ../lib/random.c
+	$(CC) -c ../lib/random.c -o ../compiled/random.o $(CFLAGS)
+
+../compiled/simpio.o: ../lib/simpio.c
+	$(CC) -c ../lib/simpio.c -o ../compiled/simpio.o $(CFLAGS)
+
+../compiled/strlib.o: ../lib/strlib.c
+	$(CC) -c ../lib/strlib.c -o ../compiled/strlib.o $(CFLAGS)
+
+../compiled/main.o: ../src/main.c
+	$(CC) -c ../src/main.c -o ../compiled/main.o $(CFLAGS)
+
+../compiled/display.o: ../src/display.c
+	$(CC) -c ../src/display.c -o ../compiled/display.o $(CFLAGS)
+
+../compiled/file.o: ../src/file.c
+	$(CC) -c ../src/file.c -o ../compiled/file.o $(CFLAGS)
+
+../compiled/solution_auto.o: ../src/solution_auto.c
+	$(CC) -c ../src/solution_auto.c -o ../compiled/solution_auto.o $(CFLAGS)
